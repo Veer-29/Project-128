@@ -21,10 +21,6 @@ function gotPoses(results)
   if(results.length > 0)
   {
 	console.log(results);
-	
-	scoreLeft=results[0].pose.keypoints[9].score
-	scoreRight=results[0].pose.keypoints[10].score
-	console.log("scoreLeft ="+scoreLeft+",scoreRight ="+scoreRight)
 
 	rightWristX = results[0].pose.rightWrist.x;
 	rightWristY = results[0].pose.rightWrist.y;
@@ -58,17 +54,7 @@ function draw() {
 
 	fill("#FF0000");
 	stroke("#FF0000");
-
-	if(scoreLeft>0.2){
-		circle(leftwristx,leftwristy,20)
-		numberleftwristy=Number(leftwristy)
-		remove_decimals=floor(numberleftwristy)
-		volume=remove_decimals/500
-		song.setVolume(volume)
-		document.getElementById("volume").innerHTML="volume ="+volume;
-		}
 }
-
 function play() {
     song1.play();
     song1.setVolume(1);
